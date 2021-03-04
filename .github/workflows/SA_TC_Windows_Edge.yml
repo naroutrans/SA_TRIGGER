@@ -1,10 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: SA_ALD_Windows_Edge
+name: SA_TC_Windows_Edge
 
-#on:
-#  schedule:
-#    - cron:  '0 18 * * *'
+on:
+  push:
+    branches:
+      - master
 jobs:
   build:
     runs-on: windows-2019
@@ -21,7 +22,7 @@ jobs:
           java-version: '11'
           architecture: x64
       - name: DO RUN
-        run: java -jar BIN/ALD/SA_ALD_Windows_Edge.jar
+        run: java -jar BIN/TC/SA_TC_Windows_Edge.jar 1
       - name: 🚀 Deploy build
         run: |
           git config user.name "${GITHUB_ACTOR}"
