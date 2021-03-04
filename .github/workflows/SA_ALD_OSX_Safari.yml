@@ -2,10 +2,9 @@
 
 name: SA_ALD_OSX_Safari
 
-on:
-  push:
-    branches:
-      - master
+#on:
+#  schedule:
+#    - cron:  '0 0 * * *'
 jobs:
   build:
 
