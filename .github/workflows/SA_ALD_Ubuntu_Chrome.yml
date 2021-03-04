@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: SA_ALD_Ubuntu_Firefox
+name: SA_ALD_Ubuntu_Chrome
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
           java-version: '11'
           architecture: x64
       - name: DO RUN
-        run: java -jar BIN/ALD/SA_ALD_Ubuntu_Firefox.jar
+        run: java -jar BIN/ALD/SA_ALD_Ubuntu_Chrome.jar
       - name: 🚀 Deploy build
         run: |
           git config user.name "${GITHUB_ACTOR}"
