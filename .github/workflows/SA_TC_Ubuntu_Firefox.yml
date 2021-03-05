@@ -2,9 +2,10 @@
 
 name: SA_TC_Ubuntu_Firefox
 
-#on:
-#  schedule:
-#    - cron:  '0 13 * * *'
+on:
+  push:
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
