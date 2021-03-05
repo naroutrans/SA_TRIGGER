@@ -2,9 +2,10 @@
 
 name: SA_ALD_Windows_Edge
 
-#on:
-#  schedule:
-#    - cron:  '0 18 * * *'
+on:
+  push:
+    branches:
+      - master
 jobs:
   build:
     runs-on: windows-2019
