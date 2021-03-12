@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SAN_RD_Ubuntu_Firefox
+
+on:
+  schedule:
+    - cron:  '0 14 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎 Check out master
+        uses: actions/checkout@master
+        with:
+          repository: ${{ secrets.REPO_ORG }}/${{ secrets.REPO_NAME }}
+          token: ${{ secrets.REPO_TOKEN }}
+          fetch-depth: 1
+      - name: 🔨 Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          architecture: x64
+      - name: DO RUN 1
+        run: java -jar BIN/RD/SAN_RD.jar
+      - name: 🚀 Deploy build
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add .
+          git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
+          git push --all -f https://${{ secrets.REPO_TOKEN }}@github.com/${{ secrets.REPO_ORG }}/${{ secrets.REPO_NAME }}.git
