@@ -3,10 +3,8 @@
 name: SA_TC_OSX_Safari
 
 on:
-  check_run:
-    types: [requested_action]
-#  schedule:
-#    - cron:  '0 1 * * *'
+  schedule:
+    - cron:  '0 1 * * *'
 jobs:
   build:
 
