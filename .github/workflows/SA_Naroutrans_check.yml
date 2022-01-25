@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: SA_Naroutrans_check
+
+on:
+  schedule:
+    - cron:  '0 6 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎 Check out master
+        uses: actions/checkout@master
+        with:
+          repository: ${{ secrets.REPO_ORG }}/${{ secrets.REPO_NAME }}
+          token: ${{ secrets.REPO_TOKEN }}
+          fetch-depth: 1
+      - name: 🔨 Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          architecture: x64
+      - name: DO RUN
+        run: java -jar BIN/NY/SA_NT_WatchDog.jar
