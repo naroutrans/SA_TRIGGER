@@ -4,7 +4,7 @@ name: SA_ALD_Ubuntu_Chrome
 
 on:
   schedule:
-    - cron:  '0 6,18 * * *'
+    - cron:  '10 6,18 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
