@@ -3,8 +3,7 @@
 name: SA_ALD_Ubuntu_Firefox
 
 on:
-  schedule:
-    - cron:  '0 12 * * *'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
