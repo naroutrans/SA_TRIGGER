@@ -4,7 +4,7 @@ name: SA_ALD_Windows_Edge
 
 on:
   schedule:
-    - cron:  '0 6,18 * * *'
+    - cron:  '10 3,15 * * *'
 jobs:
   build:
     runs-on: windows-2019
