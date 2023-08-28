@@ -5,6 +5,7 @@ name: SA_ALD_Ubuntu_Chrome
 on:
   schedule:
     - cron:  '10 6,18 * * *'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
