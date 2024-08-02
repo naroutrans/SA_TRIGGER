@@ -5,6 +5,7 @@ name: SA_TC_Ubuntu_Chrome
 on:
   schedule:
     - cron:  '0 7 * * *'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
