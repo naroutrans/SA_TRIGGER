@@ -23,15 +23,15 @@ jobs:
           java-version: '11'
           architecture: x64
       - name: DO RUN 1
-        run: java -jar BIN/TC/SA_TC_Windows_Edge.jar 1
+        run: java -jar BIN/SeleniumAction.jar TC_WIN_EDGE 1
       - name: DO RUN 2
-        run: java -jar BIN/TC/SA_TC_Windows_Edge.jar 2
+        run: java -jar BIN/SeleniumAction.jar TC_WIN_EDGE 2
       - name: DO RUN 3
-        run: java -jar BIN/TC/SA_TC_Windows_Edge.jar 3
+        run: java -jar BIN/SeleniumAction.jar TC_WIN_EDGE 3
       - name: DO RUN 4
-        run: java -jar BIN/TC/SA_TC_Windows_Edge.jar 4
+        run: java -jar BIN/SeleniumAction.jar TC_WIN_EDGE 4
       - name: DO RUN 5
-        run: java -jar BIN/TC/SA_TC_Windows_Edge.jar 5
+        run: java -jar BIN/SeleniumAction.jar TC_WIN_EDGE 5
       - name: 🚀 Deploy build
         run: |
           git config user.name "${GITHUB_ACTOR}"
