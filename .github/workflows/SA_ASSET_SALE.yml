@@ -2,7 +2,7 @@ name: SA_ASSET_SALE
 
 on:
   schedule:
-    - cron:  '30 6 * * *'
+    - cron:  '20 6 * * *'
   workflow_dispatch:
 jobs:
   build:
