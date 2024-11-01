@@ -1,10 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
-name: SA_TC_Ubuntu_Chrome
+name: SA_ASSET_SALE
 
 on:
   schedule:
-    - cron:  '0 7 * * *'
+    - cron:  '30 6 * * *'
   workflow_dispatch:
 jobs:
   build:
@@ -21,18 +19,8 @@ jobs:
         with:
           java-version: '11'
           architecture: x64
-      - name: install chrome
-        run: |
-          set -ex
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install ./google-chrome-stable_current_amd64.deb
-          rm ./google-chrome-stable_current_amd64.deb
       - name: DO RUN 1
-        run: java -jar BIN/SeleniumAction.jar TC_UBU_CHROME 1
-      - name: DO RUN 2
-        run: java -jar BIN/SeleniumAction.jar TC_UBU_CHROME 2
-      - name: DO RUN 3
-        run: java -jar BIN/SeleniumAction.jar TC_UBU_CHROME 3
+        run: java -jar BIN/SeleniumAction.jar ASSET_SALE
       - name: 🚀 Deploy build
         run: |
           git config user.name "${GITHUB_ACTOR}"
