@@ -14,11 +14,19 @@ jobs:
           repository: ${{ secrets.REPO_ORG }}/${{ secrets.REPO_NAME }}
           token: ${{ secrets.REPO_TOKEN }}
           fetch-depth: 1
+          
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: "3.11"
-      
+
+      - name: install chrome
+        run: |
+          set -ex
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+          rm ./google-chrome-stable_current_amd64.deb
+          
       - name: Install dependencies
         run: |
           cd BIN/FAB_PY
