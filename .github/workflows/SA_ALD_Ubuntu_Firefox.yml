@@ -19,6 +19,11 @@ jobs:
         with:
           java-version: '11'
           architecture: x64
+      - name: install tess
+        run: |
+          sudo apt update
+          sudo apt install tesseract-ocr
+          sudo apt install tesseract-ocr-eng
       - name: DO RUN
         run: java -jar BIN/SeleniumAction.jar ALD_UBU_FIREFOX
       - name: 🚀 Deploy build
