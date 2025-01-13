@@ -25,14 +25,15 @@ jobs:
       - name: Install Chocolatey
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
+      - name: Install dependencies
+        run: choco install git 7zip -y
       - name: Install Tesseract OCR
-        run: choco install tesseract -y
-        
-      - name: Verify Tesseract installation
         run: |
-          tesseract --version
-          tesseract --list-langs
+          $tesseract_url = "https://github.com/UB-Mannheim/tesseract/wiki"
+          $tesseract_installer = "tesseract-ocr-setup-v4.00.00dev.exe"
+          Invoke-WebRequest -Uri $tesseract_url -OutFile $tesseract_installer
+          Start-Process -Wait -FilePath $tesseract_installer -ArgumentList '/SILENT' # Silent install
+
           
       - name: DO RUN
         run: java -jar BIN/SeleniumAction.jar ALD_WIN_EDGE
