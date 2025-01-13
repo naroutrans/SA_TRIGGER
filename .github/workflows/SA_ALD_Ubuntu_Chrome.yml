@@ -29,11 +29,9 @@ jobs:
           rm ./google-chrome-stable_current_amd64.deb
       - name: install tess
         run: |
-          sudo add-apt-repository ppa:imagemagick/imagemagick-7
           sudo apt update
           sudo apt install tesseract-ocr
           sudo apt install tesseract-ocr-eng
-          sudo apt install -y imagemagick
       - name: DO RUN
         run: java -jar BIN/SeleniumAction.jar ALD_UBU_CHROME
       - name: 🚀 Deploy build
