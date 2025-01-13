@@ -32,6 +32,7 @@ jobs:
           sudo apt update
           sudo apt install tesseract-ocr
           sudo apt install tesseract-ocr-eng
+          sudo apt install -y imagemagick
       - name: DO RUN
         run: java -jar BIN/SeleniumAction.jar ALD_UBU_CHROME
       - name: 🚀 Deploy build
