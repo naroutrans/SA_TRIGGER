@@ -27,6 +27,11 @@ jobs:
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo apt install ./google-chrome-stable_current_amd64.deb
           rm ./google-chrome-stable_current_amd64.deb
+      - name: install tess
+        run: |
+          sudo apt update
+          sudo apt install tesseract-ocr
+          sudo apt install tesseract-ocr-eng
       - name: DO RUN
         run: java -jar BIN/SeleniumAction.jar ALD_UBU_CHROME
       - name: 🚀 Deploy build
