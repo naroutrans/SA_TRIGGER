@@ -19,6 +19,12 @@ jobs:
         with:
           java-version: '11'
           architecture: x64
+      - name: install chrome
+        run: |
+          set -ex
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+          rm ./google-chrome-stable_current_amd64.deb
       - name: DO RUN 1
         run: java -jar BIN/SeleniumAction.jar TGAIA
       - name: 🚀 Deploy build
