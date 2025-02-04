@@ -26,7 +26,7 @@ jobs:
           sudo apt install ./google-chrome-stable_current_amd64.deb
           rm ./google-chrome-stable_current_amd64.deb
       - name: DO RUN 1
-        run: java -jar BIN/SeleniumAction.jar TGAIA
+        run: java -jar BIN/SeleniumAction.jar TGAIA_DEBUG
       - name: 🚀 Deploy build
         run: |
           git config user.name "${GITHUB_ACTOR}"
