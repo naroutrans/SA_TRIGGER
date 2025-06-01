@@ -38,7 +38,15 @@ jobs:
           
       - name: Install ImageMagick
         run: sudo apt-get update && sudo apt-get install -y imagemagick
-        
+
+      - name: Check where tessdata is
+        run: |
+          find /usr/share -type d -name tessdata
+          
+      - name: List installed Tesseract data files
+        run: |
+          ls -al /usr/share/tesseract-ocr/4.00/tessdata || ls -al /usr/share/tesseract-ocr/tessdata
+
       - name: DO RUN
         run: java -jar BIN/SeleniumAction.jar ALD_UBU_CHROME
         
