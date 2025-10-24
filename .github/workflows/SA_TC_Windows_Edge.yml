@@ -3,6 +3,9 @@
 name: SA_TC_Windows_Edge
 
 on:
+#  schedule:
+#    - cron:  '0 13 * * *'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: windows-2022
