@@ -20,10 +20,14 @@ jobs:
         with:
           java-version: '11'
           architecture: x64
-      - name: Run ENC
+      - name: Install 7zip
         run: |
-          cd BIN/FC
-          unzip -P "${{ secrets.FC1_PASS }}" -o FC1_MAIN.zip
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+      - name: Run ENC
+        working-directory: BIN/FC
+        run: |
+          7z x -y -p"${{ secrets.FC1_PASS }}" FC1_MAIN.zip
           ls -al
       - name: Run JAR 1
         run: |
