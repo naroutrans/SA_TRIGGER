@@ -1,0 +1,39 @@
+name: SA_FC1
+
+on:
+  schedule:
+    - cron: '0 17 * * *'  # 02:00 JST
+    - cron: '0 5 * * *'   # 14:00 JST
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎 Check out master
+        uses: actions/checkout@master
+        with:
+          repository: ${{ secrets.REPO_ORG }}/${{ secrets.REPO_NAME }}
+          token: ${{ secrets.REPO_TOKEN }}
+          fetch-depth: 1
+      - name: 🔨 Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          architecture: x64
+      - name: Run ENC
+        run: |
+          cd BIN/FC
+          unzip -P "${{ secrets.FC1_PASS }}" -o FC1_MAIN.zip
+          ls -al
+      - name: Run JAR 1
+        run: |
+          cd BIN/FC
+          java -jar FCA1_001_Main.jar NewListCheck
+      - name: Run JAR 2
+        run: |
+          cd BIN/FC
+          java -jar FCA1_001_Main.jar NewListCheck
+      - name: Run JAR 3
+        run: |
+          cd BIN/FC
+          java -jar FCA1_001_Main.jar SellerCheck
