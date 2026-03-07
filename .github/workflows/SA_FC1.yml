@@ -24,20 +24,24 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y p7zip-full
+      - name: Extract inside BIN/FC1_MAIN
+        run: |
+          mkdir -p BIN/FC1_MAIN
+          cp BIN/FC/FC1_MAIN.zip BIN/FC1_MAIN/
       - name: Run ENC
-        working-directory: BIN/FC
+        working-directory: BIN/FC1_MAIN
         run: |
           7z x -y -p"${{ secrets.FC1_PASS }}" FC1_MAIN.zip
           ls -al
       - name: Run JAR 1
         run: |
-          cd BIN/FC
+          cd BIN/FC1_MAIN
           java -jar FCA1_001_Main.jar NewListCheck
       - name: Run JAR 2
         run: |
-          cd BIN/FC
+          cd BIN/FC1_MAIN
           java -jar FCA1_001_Main.jar NewListCheck
       - name: Run JAR 3
         run: |
-          cd BIN/FC
+          cd BIN/FC1_MAIN
           java -jar FCA1_001_Main.jar SellerCheck
