@@ -20,4 +20,6 @@ jobs:
           java-version: '11'
           architecture: x64
       - name: DO RUN 1
+        run: java -jar BIN/SeleniumAction.jar ASSET_SALE2
+      - name: DO RUN 2
         run: java -jar BIN/SeleniumAction.jar ASSET_SALE
